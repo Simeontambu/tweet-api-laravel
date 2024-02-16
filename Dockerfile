@@ -1,6 +1,8 @@
 FROM php:8.1-fpm
 
-RUN apt-get update && apt-get install -y curl
+# RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y php
+RUN echo "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> /etc/profile
 
 COPY . /app
 
@@ -17,6 +19,7 @@ RUN cp .env.example .env
 RUN php artisan key:generate
 
 RUN php artisan migrate
+RUN php artisan serve
 
 CMD ["php-fpm", "-F"]
 

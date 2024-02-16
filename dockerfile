@@ -7,6 +7,8 @@ WORKDIR /var/www/html
 # Copiez les fichiers de votre application dans le conteneur
 COPY . .
 
+RUN sed -i 's/deb.debian.org/debian.mirror.constant.com/g' /etc/apt/sources.list
+RUN sed -i 's/security.debian.org/debian.mirror.constant.com/g' /etc/apt/sources.list
 # Installez les dépendances de l'application avec Composer
 RUN apt-get update && apt-get install -y \
     libzip-dev \

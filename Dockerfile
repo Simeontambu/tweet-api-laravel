@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM laravel:8.1
 
 RUN apt-get update && apt-get install -y curl
 
@@ -7,9 +7,10 @@ COPY . /app
 WORKDIR /app
 
 RUN curl -sS https://getcomposer.org/installer | php
-RUN mv installer.php composer
+RUN mv composer-1.0.0-installer.php composer
 RUN chmod +x composer
 RUN composer install
+
 
 RUN cp .env.example .env
 

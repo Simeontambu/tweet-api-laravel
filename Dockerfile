@@ -6,6 +6,9 @@ COPY . /app
 
 WORKDIR /app
 
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv installer.php composer
+RUN chmod +x composer
 RUN composer install
 
 RUN cp .env.example .env

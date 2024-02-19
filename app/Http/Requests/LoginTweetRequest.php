@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class CreateTweetRequest extends FormRequest
+class LoginTweetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class CreateTweetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            'content'=>'required',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required'
         ];
     }
-    public function failedValidation(Validator $validator){
+    public function failedValidation(Validator $validator)
+    {
         throw new HttpResponseException(response()->json([
             'sucess' => false,
             'errors' => true,

@@ -4,13 +4,15 @@ Ce projet est une API Laravel qui simule les données de Twitter. L'API permet a
 
 - Récupérer des tweets.
 - Créer des tweets.
+- Validation des données: Les données entrées par les utilisateurs sont validées pour garantir leur intégrité.
+- Gestion des erreurs: L'API retourne des messages d'erreur clairs et précis en cas de problème.
 
 ## Fonctionnalités à venir
 
-- Authentification JWT: L'API utilise l'authentification JWT - pour sécuriser les accès.
+
 - Pagination: Les résultats des requêtes sont paginés pour une meilleure performance.
-- Validation des données: Les données entrées par les utilisateurs sont validées pour garantir leur intégrité.
-- Gestion des erreurs: L'API retourne des messages d'erreur clairs et précis en cas de problème.
+
+
 
 ## Technologies utilisées
 
